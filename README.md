@@ -2,6 +2,9 @@
 
 ## Client
 * [Deluge](#deluge)
+  * [Install Latest Deluge on Ubuntu Server 18.04 x64](#install-latest-deluge-on-ubuntu-server-1804-x64)
+  * [Daemon Management](#daemon-management)
+  * [Log In](#log-in)
 * Transmission
 
 ### Deluge
@@ -23,4 +26,67 @@ screen -S "deluge"
 sudo deluge-web
 screen -r deluge // switch
 ```
-I hold that daemon management under Systemd is a better approach.
+I hold that daemon management under Systemd is a better approach. For security it is best to run a service with a specific user and group. You can create one using the following command:
+```
+sudo adduser --system  --gecos "Deluge Service" --disabled-password --group --home /var/lib/deluge deluge
+sudo adduser <username> deluge
+```
+Then create two files containing the following:
+```
+vim /etc/systemd/system/deluged.service
+```
+```
+[Unit]
+Description=Deluge Bittorrent Client Daemon
+Documentation=man:deluged
+After=network-online.target
+
+[Service]
+Type=simple
+User=deluge
+Group=deluge
+UMask=007
+ExecStart=/usr/bin/deluged -d
+Restart=on-failure
+# Time to wait before forcefully stopped.
+TimeoutStopSec=300
+
+[Install]
+WantedBy=multi-user.target
+```
+```
+vim /etc/systemd/system/deluge-web.service
+```
+```
+[Unit]
+Description=Deluge Bittorrent Client Web Interface
+Documentation=man:deluge-web
+After=network-online.target deluged.service
+Wants=deluged.service
+
+[Service]
+Type=simple
+User=deluge
+Group=deluge
+UMask=027
+# This 5 second delay is necessary on some systems
+# to ensure deluged has been fully started
+ExecStartPre=/bin/sleep 5
+ExecStart=/usr/bin/deluge-web
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+```
+Now enable it to start up on boot, start the service and verify it is running:
+```
+sudo systemctl enable /etc/systemd/system/deluged.service
+sudo systemctl start deluged
+sudo systemctl status deluged
+
+sudo systemctl enable /etc/systemd/system/deluge-web.service
+sudo systemctl start deluge-web
+sudo systemctl status deluge-web
+```
+#### Log In
+Open your web browser and input this URL `<your_server's_ip:8112>` , you will be asked to enter a password which is by default set as `deluge` . After sign in, do not forget to change another password, then enjoy it.
