@@ -1,5 +1,5 @@
 # Private Tracker Server Installation And Configuration Guide
-
+![](https://img.shields.io/badge/python-2.7-green.svg) ![](https://img.shields.io/badge/license-MIT-blue.svg)
 ## Client
 * [Deluge](#deluge)
   * [Install Latest Deluge on Ubuntu Server 18.04 x64](#install-latest-deluge-on-ubuntu-server-1804-x64)
