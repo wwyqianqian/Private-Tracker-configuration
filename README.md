@@ -1,11 +1,11 @@
 # Private Tracker Server Installation And Configuration Guide
-![](https://img.shields.io/badge/python-2.7-green.svg) ![](https://img.shields.io/badge/license-MIT-blue.svg)
+![](https://img.shields.io/badge/python-2.7-green.svg) ![](https://img.shields.io/badge/license-MIT-blue.svg) ![](https://img.shields.io/badge/docs-only-red.svg)
 ## Client
 * [Deluge](#deluge)
   * [Install Latest Deluge on Ubuntu Server 18.04 x64](#install-latest-deluge-on-ubuntu-server-1804-x64)
   * [Daemon Management](#daemon-management)
   * [Log In](#log-in)
-* Transmission
+* [Transmission](#transmission)
 
 ### Deluge
 What is Deluge? [Deluge](https://dev.deluge-torrent.org/wiki/Download) is a lightweight, Free Software, cross-platform BitTorrent client.
@@ -90,3 +90,6 @@ sudo systemctl status deluge-web
 ```
 #### Log In
 Open your web browser and input this URL `<your_server's_ip:8112>` , you will be asked to enter a password which is by default set as `deluge` . After sign in, do not forget to change another password, then enjoy it.
+
+### Transmission
+What is Transmission? [Transmission](https://transmissionbt.com/) uses fewer resources than other clients. It has native Mac, GTK+ and Qt GUI clients and daemon ideal for servers support. All these can be remote controlled by Web and terminal clients. Transmission has the features you want from a BitTorrent client: encryption, a web interface, peer exchange, magnet links, DHT, µTP, UPnP and NAT-PMP port forwarding, webseed support, watch directories, tracker editing, global and per-torrent speed limits, and more.
