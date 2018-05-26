@@ -93,3 +93,99 @@ Open your web browser and input this URL `<your_server's_ip:8112>` , you will be
 
 ### Transmission
 What is Transmission? [Transmission](https://transmissionbt.com/) uses fewer resources than other clients. It has native Mac, GTK+ and Qt GUI clients and daemon ideal for servers support. All these can be remote controlled by Web and terminal clients. Transmission has the features you want from a BitTorrent client: encryption, a web interface, peer exchange, magnet links, DHT, µTP, UPnP and NAT-PMP port forwarding, webseed support, watch directories, tracker editing, global and per-torrent speed limits, and more.
+#### Install Latest Transmission on Ubuntu Server 18.04 x64
+Currently the version is 2.94. You can found the previous releases [here](https://github.com/transmission/transmission/releases). Just like Deluge, Transmission also has a transmission-daemon which to be deployed onto any server. Now, let's install it.
+```
+sudo apt update
+sudo apt install transmission-daemon
+sudo apt autoremove
+```
+The following additional packages will be installed: `libminiupnpc10` ` libnatpmp1` `transmission-cli` `transmission-common`. Since the daemon is starting, you can not modify the configuration immediately at all. What you have to do is stop it temporarily before the modification:
+```
+sudo service transmission-daemon stop
+vim /var/lib/transmission-daemon/info/settings.json
+```
+#### Configure the Transmission
+What's more, `/var/lib/transmission-daemon/info/settings.json` links to `/etc/transmission-daemon/settings.json`. You need to change the first one
+exclusively. And [here](https://github.com/transmission/transmission/wiki/Editing-Configuration-Files#options) is an option list of configuration files which format is JSON. Let's take a look at what the default file is.
+```
+{
+    "alt-speed-down": 50,
+    "alt-speed-enabled": false,
+    "alt-speed-time-begin": 540,
+    "alt-speed-time-day": 127,
+    "alt-speed-time-enabled": false,
+    "alt-speed-time-end": 1020,
+    "alt-speed-up": 50,
+    "bind-address-ipv4": "0.0.0.0",
+    "bind-address-ipv6": "::",
+    "blocklist-enabled": false,
+    "blocklist-url": "http://www.example.com/blocklist",
+    "cache-size-mb": 4,
+    "dht-enabled": true,
+    "download-dir": "/var/lib/transmission-daemon/downloads",
+    "download-limit": 100,
+    "download-limit-enabled": 0,
+    "download-queue-enabled": true,
+    "download-queue-size": 5,
+    "encryption": 1,
+    "idle-seeding-limit": 30,
+    "idle-seeding-limit-enabled": false,
+    "incomplete-dir": "/var/lib/transmission-daemon/Downloads",
+    "incomplete-dir-enabled": false,
+    "lpd-enabled": false,
+    "max-peers-global": 200,
+    "message-level": 1,
+    "peer-congestion-algorithm": "",
+    "peer-id-ttl-hours": 6,
+    "peer-limit-global": 200,
+    "peer-limit-per-torrent": 50,
+    "peer-port": 51413,
+    "peer-port-random-high": 65535,
+    "peer-port-random-low": 49152,
+    "peer-port-random-on-start": false,
+    "peer-socket-tos": "default",
+    "pex-enabled": true,
+    "port-forwarding-enabled": false,
+    "preallocation": 1,
+    "prefetch-enabled": true,
+    "queue-stalled-enabled": true,
+    "queue-stalled-minutes": 30,
+    "ratio-limit": 2,
+    "ratio-limit-enabled": false,
+    "rename-partial-files": true,
+    "rpc-authentication-required": true,
+    "rpc-bind-address": "0.0.0.0",
+    "rpc-enabled": true,
+    "rpc-host-whitelist": "",
+    "rpc-host-whitelist-enabled": true,
+    "rpc-password": "pw",
+    "rpc-port": 9091,
+    "rpc-url": "/transmission/",
+    "rpc-username": "transmission",
+    "rpc-whitelist": "127.0.0.1",
+    "rpc-whitelist-enabled": true,
+    "scrape-paused-torrents-enabled": true,
+    "script-torrent-done-enabled": false,
+    "script-torrent-done-filename": "",
+    "seed-queue-enabled": false,
+    "seed-queue-size": 10,
+    "speed-limit-down": 100,
+    "speed-limit-down-enabled": false,
+    "speed-limit-up": 100,
+    "speed-limit-up-enabled": false,
+    "start-added-torrents": true,
+    "trash-original-torrent-files": false,
+    "umask": 18,
+    "upload-limit": 100,
+    "upload-limit-enabled": 0,
+    "upload-slots-per-torrent": 14,
+    "utp-enabled": true
+}
+```
+Edit for yourself and start the daemon right now.
+```
+sudo service transmission-daemon start
+```
+#### Log In
+`http://your.domain.name:9091/transmission/web/ ` is what you want. The asked username and password are set by yourself. Type them in and begin downloading.
