@@ -6,6 +6,9 @@
   * [Daemon Management](#daemon-management)
   * [Log In](#log-in)
 * [Transmission](#transmission)
+  * [Install Latest Transmission on Ubuntu Server 18.04 x64](#install-latest-transmission-on-ubuntu-server-1804-x64)
+  * [Configure the Transmission](#configure-the-transmission)
+  * [Log In](#log-in-1)
 
 ### Deluge
 What is Deluge? [Deluge](https://dev.deluge-torrent.org/wiki/Download) is a lightweight, Free Software, cross-platform BitTorrent client.
