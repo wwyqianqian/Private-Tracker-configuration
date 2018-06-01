@@ -1,6 +1,7 @@
 ### Original Options
 >  https://github.com/transmission/transmission/wiki/Editing-Configuration-Files#options
 
+
 #### Bandwidth
 * alt-speed-enabled: 参数是布尔值，代表是否开启计划时段限速（默认为否，又被称作「海龟模式」）。注意：当日程表模式开启时，在 gui 界面点击海龟那个图标，会暂时移除预先定时限制，直到下一个循环开始。
 * alt-speed-up: 计划时段限速上传最大值。数字 (单位 KB/s, 默认 = 50)
@@ -10,9 +11,11 @@
 * speed-limit-up: 全局上传最大速度限制。数字 (单位 KB/s, 默认 = 100)
 * speed-limit-up-enabled: 是否开启全局上传限速。布尔值 (默认 = false)
 * upload-slots-per-torrent: 每个种子的连接数。数字 (默认 = 14)
+
 #### Blocklists
 * blocklist-url: 自定义黑名单链接。字符串 (默认 = http://www.example.com/blocklist)
 * blocklist-enabled: 是否开启黑名单。布尔值 (默认 = false)
+
 #### Files and Locations
 * download-dir: String (default = default locations)
 * incomplete-dir: String (default = default locations) Directory to keep files in until torrent is complete.
@@ -25,6 +28,7 @@
 * watch-dir: String
 * watch-dir-enabled: Boolean (default = false) Watch a directory for torrent files and add them to transmission.
 * Note: When watch-dir-enabled is true, only the transmission-daemon, transmission-gtk, and transmission-qt applications will monitor watch-dir for new .torrent files and automatically load them.
+
 #### Misc
 * cache-size-mb: Size (default = 4), in megabytes, to allocate for Transmission's memory cache. The cache is used to help batch disk IO together, so increasing the cache size can be used to reduce the number of disk reads and writes. Default is 2 if configured with --enable-lightweight.
 * dht-enabled: Boolean (default = true) Enable Distributed Hash Table (DHT).
@@ -38,6 +42,7 @@
 * script-torrent-done-enabled: Boolean (default = false) Run a script at torrent completion.
 * script-torrent-done-filename: String (default = "") Path to script.
 * utp-enabled: Boolean (default = true) Enable Micro Transport Protocol (µTP)
+
 #### Peers
 * bind-address-ipv4: String (default = "0.0.0.0") Where to listen for peer connections.
 * bind-address-ipv6: String (default = "::") Where to listen for peer connections.
@@ -46,12 +51,14 @@
 * peer-limit-global: Number (default = 240)
 * peer-limit-per-torrent: Number (default = 60)
 * peer-socket-tos: String (default = "default") Set the Type-Of-Service (TOS) parameter for outgoing TCP packets. Possible values are "default", "lowcost", "throughput", "lowdelay" and "reliability". The value "lowcost" is recommended if you're using a smart router, and shouldn't harm in any case.
+
 #### Peer Port
 * peer-port: Number (default = 51413)
 * peer-port-random-high: Number (default = 65535)
 * peer-port-random-low: Number (default = 1024)
 * peer-port-random-on-start: Boolean (default = false)
 * port-forwarding-enabled: Boolean (default = true) Enable UPnP or NAT-PMP.
+
 #### Queuing
 * download-queue-enabled: Boolean (default = true) When true, Transmission will only download download-queue-size non-stalled torrents at once.
 * download-queue-size: Number (default = 5) See download-queue-enabled.
@@ -59,6 +66,7 @@
 * queue-stalled-minutes: Number (default = 30) See queue-stalled-enabled.
 * seed-queue-enabled: Boolean (default = false) When true. Transmission will only seed seed-queue-size non-stalled torrents at once.
 * seed-queue-size: Number (default = 10) See seed-queue-enabled.
+
 #### RPC
 * rpc-authentication-required: Boolean (default = false)
 * rpc-bind-address: String (default = "0.0.0.0") Where to listen for RPC connections
@@ -71,6 +79,7 @@
 * rpc-username: String
 * rpc-whitelist: String (Comma-delimited list of IP addresses. Wildcards allowed using '*'. Example: "127.0.0.*,192.168.*.*", Default: "127.0.0.1")
 * rpc-whitelist-enabled: Boolean (default = true)
+
 #### Scheduling
 * alt-speed-time-enabled: Boolean (default = false)
 * Note: When enabled, this will toggle the alt-speed-enabled setting.
