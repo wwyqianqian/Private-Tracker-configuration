@@ -2,18 +2,17 @@
 >  https://github.com/transmission/transmission/wiki/Editing-Configuration-Files#options
 
 #### Bandwidth
-* alt-speed-enabled: Boolean (default = false, aka 'Turtle Mode')
-Note: Clicking the "Turtle" in the gui when the scheduler is enabled, will only temporarily remove the scheduled limit until the next cycle.
-* alt-speed-up: Number (KB/s, default = 50)
-* alt-speed-down: Number (KB/s, default = 50)
-* speed-limit-down: Number (KB/s, default = 100)
-* speed-limit-down-enabled: Boolean (default = false)
-* peed-limit-up: Number (KB/s, default = 100)
-* speed-limit-up-enabled: Boolean (default = false)
-* upload-slots-per-torrent: Number (default = 14)
+* alt-speed-enabled: 参数是布尔值，代表是否开启计划时段限速（默认为否，又被称作「海龟模式」）。注意：当日程表模式开启时，在 gui 界面点击海龟那个图标，会暂时移除预先定时限制，直到下一个循环开始。
+* alt-speed-up: 计划时段限速上传最大值。数字 (单位 KB/s, 默认 = 50)
+* alt-speed-down: 计划时段限速下载最大值。数字 (单位 KB/s, 默认 = 50)
+* speed-limit-down: 全局下载最大速度限制。数字 (单位 KB/s, 默认 = 100)
+* speed-limit-down-enabled: 是否开启全局下载限速。布尔值 (默认 = false)
+* speed-limit-up: 全局上传最大速度限制。数字 (单位 KB/s, 默认 = 100)
+* speed-limit-up-enabled: 是否开启全局上传限速。布尔值 (默认 = false)
+* upload-slots-per-torrent: 每个种子的连接数。数字 (默认 = 14)
 #### Blocklists
-* blocklist-url: String (default = http://www.example.com/blocklist)
-* blocklist-enabled: Boolean (default = false)
+* blocklist-url: 自定义黑名单链接。字符串 (默认 = http://www.example.com/blocklist)
+* blocklist-enabled: 是否开启黑名单。布尔值 (默认 = false)
 #### Files and Locations
 * download-dir: String (default = default locations)
 * incomplete-dir: String (default = default locations) Directory to keep files in until torrent is complete.
