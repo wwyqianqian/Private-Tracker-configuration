@@ -4,24 +4,24 @@
 
 #### Bandwidth
 * alt-speed-enabled: 参数是布尔值，代表是否开启计划时段限速（默认为否，又被称作「海龟模式」）。注意：当日程表模式开启时，在 gui 界面点击海龟那个图标，会暂时移除预先定时限制，直到下一个循环开始。
-* alt-speed-up: 计划时段限速上传最大值。数字 (单位 KB/s, 默认 = 50)
-* alt-speed-down: 计划时段限速下载最大值。数字 (单位 KB/s, 默认 = 50)
-* speed-limit-down: 全局下载最大速度限制。数字 (单位 KB/s, 默认 = 100)
-* speed-limit-down-enabled: 是否开启全局下载限速。布尔值 (默认 = false)
-* speed-limit-up: 全局上传最大速度限制。数字 (单位 KB/s, 默认 = 100)
-* speed-limit-up-enabled: 是否开启全局上传限速。布尔值 (默认 = false)
-* upload-slots-per-torrent: 每个种子的连接数。数字 (默认 = 14)
+* alt-speed-up: 计划时段限速上传最大值。数字（单位 KB/s, 默认 = 50）
+* alt-speed-down: 计划时段限速下载最大值。数字（单位 KB/s, 默认 = 50）
+* speed-limit-down: 全局下载最大速度限制。数字（单位 KB/s, 默认 = 100）
+* speed-limit-down-enabled: 是否开启全局下载限速。布尔值（默认 = false）
+* speed-limit-up: 全局上传最大速度限制。数字（单位 KB/s, 默认 = 100）
+* speed-limit-up-enabled: 是否开启全局上传限速。布尔值（默认 = false）
+* upload-slots-per-torrent: 每个种子的连接数。数字（默认 = 14）
 
 #### Blocklists
-* blocklist-url: 自定义黑名单链接。字符串 (默认 = http://www.example.com/blocklist)
-* blocklist-enabled: 是否开启黑名单。布尔值 (默认 = false)
+* blocklist-url: 自定义黑名单链接。字符串（默认 = http://www.example.com/blocklist）
+* blocklist-enabled: 是否开启黑名单。布尔值（默认 = false）
 
 #### Files and Locations
-* download-dir: String (default = default locations)
-* incomplete-dir: String (default = default locations) Directory to keep files in until torrent is complete.
-* incomplete-dir-enabled: Boolean (default = false) When enabled, new torrents will download the files to incomplete-dir. When complete, the files will be moved to download-dir.
-* preallocation: Number (0 = Off, 1 = Fast, 2 = Full (slower but reduces disk fragmentation), default = 1)
-* rename-partial-files: Boolean (default = true) Postfix partially downloaded files with ".part".
+* download-dir: 自定义存放完全完成下载种子的路径。字符串（默认 = ../var/lib/transmission-daemon/downloads）
+* incomplete-dir: 自定义存放下载未完成的文件的目录。字符串（默认 = ../var/lib/transmission-daemon/Downloads）
+* incomplete-dir-enabled: 是否允许自定义存放下载未完成的文件目录。布尔值（默认 = false）。当允许的时候，新的种子将暂时下载在 `incomplete-dir` 这个目录里面，下载完成后，会自动被移动到 `download-dir` 目录。
+* preallocation: 磁盘空间预分配。数字（0 = 关闭，1 = 快速，2 = 完全（2 虽然慢，但是能减少磁盘碎片），默认 = 1）
+* rename-partial-files: 是否重命名部分文件。布尔值（默认 = true）。把部分下载文件改成 `.part` 后缀。
 * start-added-torrents: Boolean (default = true) Start torrents as soon as they are added.
 * trash-original-torrent-files: Boolean (default = false) Delete torrents added from the watch directory.
 * umask: Number (default = 18) Sets transmission's file mode creation mask. See the umask(2) manpage for more information. Users who want their saved torrents to be world-writable may want to set this value to 0. Bear in mind that the json markup language only accepts numbers in base 10, so the standard umask(2) octal notation "022" is written in settings.json as 18.
