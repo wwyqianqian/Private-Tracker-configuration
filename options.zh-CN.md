@@ -17,17 +17,16 @@
 * blocklist-enabled: 是否开启黑名单。布尔值（默认 = false）
 
 #### Files and Locations
-* download-dir: 自定义存放完全完成下载种子的路径。字符串（默认 = ../var/lib/transmission-daemon/downloads）
-* incomplete-dir: 自定义存放下载未完成的文件的目录。字符串（默认 = ../var/lib/transmission-daemon/Downloads）
+* download-dir: 自定义存放完全完成下载种子的路径。字符串（默认 = `../var/lib/transmission-daemon/downloads`）
+* incomplete-dir: 自定义存放下载未完成的文件的目录。字符串（默认 = `../var/lib/transmission-daemon/Downloads`）
 * incomplete-dir-enabled: 是否允许自定义存放下载未完成的文件目录。布尔值（默认 = false）。当允许的时候，新的种子将暂时下载在 `incomplete-dir` 这个目录里面，下载完成后，会自动被移动到 `download-dir` 目录。
 * preallocation: 磁盘空间预分配。数字（0 = 关闭，1 = 快速，2 = 完全（2 虽然慢，但是能减少磁盘碎片），默认 = 1）
-* rename-partial-files: 是否重命名部分文件。布尔值（默认 = true）。把部分下载文件改成 `.part` 后缀。
-* start-added-torrents: Boolean (default = true) Start torrents as soon as they are added.
-* trash-original-torrent-files: Boolean (default = false) Delete torrents added from the watch directory.
-* umask: Number (default = 18) Sets transmission's file mode creation mask. See the umask(2) manpage for more information. Users who want their saved torrents to be world-writable may want to set this value to 0. Bear in mind that the json markup language only accepts numbers in base 10, so the standard umask(2) octal notation "022" is written in settings.json as 18.
-* watch-dir: String
-* watch-dir-enabled: Boolean (default = false) Watch a directory for torrent files and add them to transmission.
-* Note: When watch-dir-enabled is true, only the transmission-daemon, transmission-gtk, and transmission-qt applications will monitor watch-dir for new .torrent files and automatically load them.
+* rename-partial-files: 是否重命名部分文件。布尔值（默认 = true）。把部分下载文件改成以 `.part` 结尾的后缀。
+* start-added-torrents: 布尔值（默认 = true）。一旦添加 torrents 后是否马上开始上传/下载/做种。
+* trash-original-torrent-files: 布尔值（默认 = false）。是否自动删除从监视目录添加的 torrents 。
+* umask: 数字（默认 = 18）。设置 transmission 的文件权限掩码。参考[这篇](http://developer.apple.com/documentation/Darwin/Reference/ManPages/man2/umask.2.html) 。如果想设置最高权限，那么就填写 0 。请记住 JSON 只接受 10 进制数字，所以标准 umask(2) 八进制的 "022" 写入 `settings.json` 要转换为 18。以此类推。
+* watch-dir: 自定义监视目录。
+* watch-dir-enabled: 布尔值（默认 = false）。从这个监视目录寻找种子文件之后自动添加到 transmission 。<br/> 请注意：当 `watch-dir-enabled` 设置为 true 的时候，只有 `transmission-daemon`，`transmission-gtk`，和 `transmission-qt applications` 会监视这个目录来寻找新的 `.torrent` 文件，并且自动加载他们。
 
 #### Misc
 * cache-size-mb: Size (default = 4), in megabytes, to allocate for Transmission's memory cache. The cache is used to help batch disk IO together, so increasing the cache size can be used to reduce the number of disk reads and writes. Default is 2 if configured with --enable-lightweight.
