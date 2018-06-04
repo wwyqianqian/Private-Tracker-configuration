@@ -29,7 +29,7 @@
 * watch-dir-enabled: 布尔值（默认 = false）。从这个监视目录寻找种子文件之后自动添加到 transmission 。<br/> 请注意：当 `watch-dir-enabled` 设置为 true 的时候，只有 `transmission-daemon`，`transmission-gtk`，和 `transmission-qt applications` 会监视这个目录来寻找新的 `.torrent` 文件，并且自动加载他们。
 
 #### Misc
-* cache-size-mb: Size (default = 4), in megabytes, to allocate for Transmission's memory cache. The cache is used to help batch disk IO together, so increasing the cache size can be used to reduce the number of disk reads and writes. Default is 2 if configured with --enable-lightweight.
+* cache-size-mb: 大小（默认 = 4）单位是 `megabytes`，用来分配内存缓存。缓存用于批量处理磁盘 IO ，所以提升这个数值可以减少磁盘频繁读写的次数。如果配置了 `--enable-lightweight` ，那么默认值就是 2 而不是 4。
 * dht-enabled: Boolean (default = true) Enable Distributed Hash Table (DHT).
 * encryption: Number (0 = Prefer unencrypted connections, 1 = Prefer encrypted connections, 2 = Require encrypted connections; default = 1) Encryption preference. Encryption may help get around some ISP filtering, but at the cost of slightly higher CPU use.
 * lazy-bitfield-enabled: Boolean (default = true) May help get around some ISP filtering. Vuze specification.
