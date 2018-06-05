@@ -30,17 +30,17 @@
 
 #### Misc
 * cache-size-mb: 大小（默认 = 4）单位是 `megabytes`，用来分配内存缓存。缓存用于批量处理磁盘 IO ，所以提升这个数值可以减少磁盘频繁读写的次数。如果配置了 `--enable-lightweight` ，那么默认值就是 2 而不是 4。
-* dht-enabled: Boolean (default = true) Enable Distributed Hash Table (DHT).
-* encryption: Number (0 = Prefer unencrypted connections, 1 = Prefer encrypted connections, 2 = Require encrypted connections; default = 1) Encryption preference. Encryption may help get around some ISP filtering, but at the cost of slightly higher CPU use.
-* lazy-bitfield-enabled: Boolean (default = true) May help get around some ISP filtering. Vuze specification.
-* lpd-enabled: Boolean (default = false) Enable Local Peer Discovery (LPD).
-* message-level: Number (0 = None, 1 = Error, 2 = Info, 3 = Debug, default = 2) Set verbosity of transmission messages.
-* pex-enabled: Boolean (default = true) Enable [http://en.wikipedia.org/wiki/Peer_exchange Peer Exchange (PEX)].
-* prefetch-enabled: Boolean (default = true). When enabled, Transmission will hint to the OS which piece data it's about to read from disk in order to satisfy requests from peers. On Linux, this is done by passing POSIX_FADV_WILLNEED to posix_fadvise(). On OS X, this is done by passing F_RDADVISE to fcntl(). This defaults to false if configured with --enable-lightweight.
-* scrape-paused-torrents-enabled: Boolean (default = true)
-* script-torrent-done-enabled: Boolean (default = false) Run a script at torrent completion.
-* script-torrent-done-filename: String (default = "") Path to script.
-* utp-enabled: Boolean (default = true) Enable Micro Transport Protocol (µTP)
+* dht-enabled: 是否开启分散式哈希表 `Distributed Hash Table` 。布尔值（默认 = true）。 **如果下载 pt 的话，要改成不允许。**
+* encryption: 是否选择加密。数值（0 = 首选不加密的连接，1 = 首选加密连接，2 = 只连接加密的连接；默认 = 1）。加密可能有助于解决一些 `ISP 过滤（ISP filtering）`（防止运营商或者 ISP 封杀 BT） 问题，但代价是 CPU 消耗略高。
+* lazy-bitfield-enabled: 布尔值（默认 = true）。可能有助于解决一些 `ISP 过滤` 问题。是 Vuze（一种 BitTorrent 客户端）的规范。
+* lpd-enabled: 布尔值（默认 = false）。是否开启 `本地节点侦测 Local Peer Discovery` 。 **pt 下载需要关掉。**
+* message-level: 消息等级。数值（0 = 无，1 = 错误，2 = 详细，3 = 排错，默认 = 2）。设置客户端显示消息细节程度。
+* pex-enabled: 布尔值（默认 = true）。[什么是 Peer Exchange 节点交换](http://en.wikipedia.org/wiki/Peer_exchange) 。 **pt 下载需要关闭。**
+* prefetch-enabled: 预取模式，布尔值（默认 = true）。当允许时，Transmission 要告知操作系统哪部分数据要从磁盘读取，这样能达到peer的要求。Linux上，是通过将 `POSIX_FADV_WILLNEED` 传递给 `posix_fadvise()` 来完成的。在 Mac OS 上，这是通过将 `F_RDADVISE` 传递给 `fcntl()` 来完成的。如果有 `--enable-lightweight` 配置，则此默认值为false。
+* scrape-paused-torrents-enabled: 布尔值（默认 = true）。
+* script-torrent-done-enabled: 布尔值（默认 = false）。在 torrent 结束时是否运行脚本。
+* script-torrent-done-filename: 字符串（default = ""）这里写入脚本的路径。
+* utp-enabled: 布尔值（默认 = true）。是否允许 [Micro Transport Protocol (µTP)](https://zh.wikipedia.org/zh-cn/Micro_Transport_Protocol) 。注：Transmission从 2.30 版开始支持 µTP。
 
 #### Peers
 * bind-address-ipv4: String (default = "0.0.0.0") Where to listen for peer connections.
