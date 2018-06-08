@@ -43,13 +43,13 @@
 * utp-enabled: 布尔值（默认 = true）。是否允许 [Micro Transport Protocol (µTP)](https://zh.wikipedia.org/zh-cn/Micro_Transport_Protocol) 。注：Transmission从 2.30 版开始支持 µTP。
 
 #### Peers
-* bind-address-ipv4: String (default = "0.0.0.0") Where to listen for peer connections.
-* bind-address-ipv6: String (default = "::") Where to listen for peer connections.
-* peer-congestion-algorithm: String. This is documented on http://www.pps.jussieu.fr/~jch/software/bittorrent/tcp-congestion-control.html.
-* peer-id-ttl-hours: Number (default = 6) Recycle the peer id used for public torrents after N hours of use.
-* peer-limit-global: Number (default = 240)
-* peer-limit-per-torrent: Number (default = 60)
-* peer-socket-tos: String (default = "default") Set the Type-Of-Service (TOS) parameter for outgoing TCP packets. Possible values are "default", "lowcost", "throughput", "lowdelay" and "reliability". The value "lowcost" is recommended if you're using a smart router, and shouldn't harm in any case.
+* bind-address-ipv4: 绑定 v4 地址，字符串（默认 = "0.0.0.0"）。监听 peer 连接用。
+* bind-address-ipv6: 绑定 v6 地址，字符串（默认 = "0.0.0.0"）。监听 peer 连接用。
+* peer-congestion-algorithm: tcp 拥塞控制，字符串。这里是文档：http://www.pps.jussieu.fr/~jch/software/bittorrent/tcp-congestion-control.html 。如果想使用 TCP-LP，请这里填写 `"lp"`。
+* peer-id-ttl-hours: 数字 N（默认值= 6）。在使用 N 小时后，回收已经发布种子的 peer ID。
+* peer-limit-global: 数字（默认 = 240）。全局 peer 数目限制。是用户上限。
+* peer-limit-per-torrent: 数字（默认 = 60）。每个种子 peer 数目限制。
+* peer-socket-tos: 字符串（默认 = "default"）。为发出的 TCP 数据包设置服务类型（Type-Of-Service:TOS）参数。这里可选择的填写是`“default”`（默认），`“lowcost”`（低耗），`“throughput”`（吞吐量），`“lowdelay”`（低延迟）和`“reliability”`（可靠性）。如果使用的是智能路由器，建议使用`“lowcost”`值，这样不应在任何情况下造成损害。
 
 #### Peer Port
 * peer-port: Number (default = 51413)
