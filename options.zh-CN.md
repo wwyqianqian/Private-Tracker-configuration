@@ -52,32 +52,32 @@
 * peer-socket-tos: 字符串（默认 = "default"）。为发出的 TCP 数据包设置服务类型（Type-Of-Service:TOS）参数。这里可选择的填写是`“default”`（默认），`“lowcost”`（低耗），`“throughput”`（吞吐量），`“lowdelay”`（低延迟）和`“reliability”`（可靠性）。如果使用的是智能路由器，建议使用`“lowcost”`值，这样不应在任何情况下造成损害。
 
 #### Peer Port
-* peer-port: Number (default = 51413)
-* peer-port-random-high: Number (default = 65535)
-* peer-port-random-low: Number (default = 1024)
-* peer-port-random-on-start: Boolean (default = false)
-* port-forwarding-enabled: Boolean (default = true) Enable UPnP or NAT-PMP.
+* peer-port: 数值（默认 = 51413）传入端口号。
+* peer-port-random-high: 数值（默认 = 65535）随机端口号上限。
+* peer-port-random-low: 数值（默认 = 1024）随机端口号下限。
+* peer-port-random-on-start: 布尔值（默认 = false）。是否开启随机端口号。
+* port-forwarding-enabled: 布尔值（默认 = true）。是否开启 UPnP 或者 NAT-PMP。
 
 #### Queuing
-* download-queue-enabled: Boolean (default = true) When true, Transmission will only download download-queue-size non-stalled torrents at once.
-* download-queue-size: Number (default = 5) See download-queue-enabled.
-* queue-stalled-enabled: Boolean (default = true) When true, torrents that have not shared data for queue-stalled-minutes are treated as 'stalled' and are not counted against the queue-download-size and seed-queue-size limits.
-* queue-stalled-minutes: Number (default = 30) See queue-stalled-enabled.
-* seed-queue-enabled: Boolean (default = false) When true. Transmission will only seed seed-queue-size non-stalled torrents at once.
-* seed-queue-size: Number (default = 10) See seed-queue-enabled.
+* download-queue-enabled: 布尔值（默认 = true）。当设置为 true 时，Transmission 将会只下载当前队列里面未停滞的种子。
+* download-queue-size: 数值（默认 = 5）下载队列大小限制。
+* queue-stalled-enabled: 布尔值（默认 = true）。如果为 true，则时间不够 `queue-stalled-minutes` 分钟的种子将被视为“stalled”，并且不会计入 `queue-download-size ` 和 `seed-queue-size` 限制。
+* queue-stalled-minutes: 数值（default = 30）。队列停滞分钟数目。
+* seed-queue-enabled: 布尔值（默认 = false）当为 true 时，Transmission 会只立即做种 `seed-queue-size` 未停滞的种子。
+* seed-queue-size: 数值（默认 = 10）。
 
-#### RPC
-* rpc-authentication-required: Boolean (default = false)
-* rpc-bind-address: String (default = "0.0.0.0") Where to listen for RPC connections
-* rpc-enabled: Boolean (default = true)
-* rpc-host-whitelist: String (Comma-delimited list of domain names. Wildcards allowed using '*'. Example: "*.foo.org,example.com", Default: "", Always allowed: "localhost", "localhost.", all the IP addresses. Added in v2.93)
-* rpc-host-whitelist-enabled: Boolean (default = true. Added in v2.93)
-* rpc-password: String
-* rpc-port: Number (default = 9091)
-* rpc-url: String (default = /transmission/. Added in v2.2)
-* rpc-username: String
-* rpc-whitelist: String (Comma-delimited list of IP addresses. Wildcards allowed using '*'. Example: "127.0.0.*,192.168.*.*", Default: "127.0.0.1")
-* rpc-whitelist-enabled: Boolean (default = true)
+#### RPC(Remote Procedure Call 远程过程调用)
+* rpc-authentication-required: 布尔值（默认 = false）是否需要 RPC 验证。
+* rpc-bind-address: 字符串（默认 = "0.0.0.0"）监听 RPC 连接地址。
+* rpc-enabled: 布尔值（默认 = true）。是否开启 RPC。
+* rpc-host-whitelist: 字符串（以逗号分隔的域名列表。允许使用 `'*'` 的通配符。例如：`“* .foo.org, example.com”`，默认值：“”，始终允许：“localhost”，“localhost.”，所有IP地址。在 2.93 版本中添加）。
+* rpc-host-whitelist-enabled: 布尔值（默认 = true。在 2.93 版本中添加)。是否开 host 白名单。
+* rpc-password: 字符串。RPC 密码。
+* rpc-port: 数值（默认 = 9091)。RPC 端口号。
+* rpc-url: 字符串（默认 = /transmission/. 在 2.2 版本中添加）。
+* rpc-username: 字符串。用户名。
+* rpc-whitelist: 字符串（逗号分隔的 IP 地址列表，允许使用 `'*'` 的通配符，例如：`“127.0.0.*，192.168.*.*”`，默认值：“127.0.0.1”）。
+* rpc-whitelist-enabled: 布尔值（默认 = true）。是否启动白名单。
 
 #### Scheduling
 * alt-speed-time-enabled: Boolean (default = false)
