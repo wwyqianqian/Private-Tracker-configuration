@@ -80,12 +80,11 @@
 * rpc-whitelist-enabled: 布尔值（默认 = true）。是否启动白名单。
 
 #### Scheduling
-* alt-speed-time-enabled: Boolean (default = false)
-* Note: When enabled, this will toggle the alt-speed-enabled setting.
-* alt-speed-time-begin: Number (default = 540, in minutes from midnight, 9am)
-* alt-speed-time-end: Number (default = 1020, in minutes from midnight, 5pm)
-* alt-speed-time-day: Number/bitfield (default = 127, all days)
-  * Start with 0, then for each day you want the scheduler enabled, add:
+* alt-speed-time-enabled: 布尔值（默认 = false）。启动时段限速日期。注意：当这个开启后，会触发开启 `alt-speed-enabled`。
+* alt-speed-time-begin: 数值（默认 = 540，代表早上九点，540 为午夜到九点的时间。60 x 9 == 540)
+* alt-speed-time-end: 数值（默认 = 1020，代表晚上5点。60 x 17 == 1020)
+* alt-speed-time-day: 按位的数值的十进制（默认 = 127，代表每一天)
+  * 从 0000000 开始，想哪一天开启，就把那一天的位打上 1，之后换算为 10 进制，比如：
     * Sunday: 1 (binary: 0000001)
     * Monday: 2 (binary: 0000010)
     * Tuesday: 4 (binary: 0000100)
@@ -93,11 +92,11 @@
     * Thursday: 16 (binary: 0010000)
     * Friday: 32 (binary: 0100000)
     * Saturday: 64 (binary: 1000000)
-  * Examples:
+  * 举例:
     * Weekdays: 62 (binary: 0111110)
     * Weekends: 65 (binary: 1000001)
     * All Days: 127 (binary: 1111111)
-* idle-seeding-limit: Number (default = 30) Stop seeding after being idle for N minutes.
-* idle-seeding-limit-enabled: Boolean (default = false)
-* ratio-limit: Number (default = 2.0)
-* ratio-limit-enabled: Boolean (default = false)
+* idle-seeding-limit: 数值（默认 = 30）空闲 N 分钟之后停止做种。
+* idle-seeding-limit-enabled: 布尔值（默认 = false）。是否开启空闲限制。
+* ratio-limit: 比例限制，默认 2.0。
+* ratio-limit-enabled: 布尔值（默认 = false）。是否开启比例限制。
