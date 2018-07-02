@@ -1,5 +1,6 @@
 # Private Tracker Server Installation And Configuration Guide
-![](https://img.shields.io/badge/python-2.7-green.svg) ![](https://img.shields.io/badge/license-MIT-blue.svg) ![](https://img.shields.io/badge/docs-only-red.svg)
+![](https://img.shields.io/badge/python-2.7-green.svg) ![](https://img.shields.io/badge/license-MIT-blue.svg)
+
 ## Client
 * [Deluge](#deluge)
   * [Install Latest Deluge on Ubuntu Server 18.04 x64](#install-latest-deluge-on-ubuntu-server-1804-x64)
@@ -109,8 +110,8 @@ sudo service transmission-daemon stop
 vim /var/lib/transmission-daemon/info/settings.json
 ```
 #### Configure the Transmission
-What's more, `/var/lib/transmission-daemon/info/settings.json` links to `/etc/transmission-daemon/settings.json`. You need to change the first one
-exclusively. And [here](https://github.com/transmission/transmission/wiki/Editing-Configuration-Files#options) is an option list of configuration files which format is JSON. Let's take a look at what the default file is.
+**[Here](https://github.com/wwyqianqian/Private-Tracker-configuration/blob/master/options.zh-CN.md) is the translation of configuration guide in Chinese (Simplified).〖简体中文配置文件在这里〗. Welcome to pull requests!**
+What's more, `/var/lib/transmission-daemon/info/settings.json` links to `/etc/transmission-daemon/settings.json`. You need to change the first one exclusively. And [here](https://github.com/transmission/transmission/wiki/Editing-Configuration-Files#options) is an option list of configuration files which format is JSON. Let's take a look at what the default file is.
 ```
 {
     "alt-speed-down": 50,
@@ -191,4 +192,4 @@ Edit for yourself and start the daemon right now.
 sudo service transmission-daemon start
 ```
 #### Log In
-`http://your.domain.name:9091/transmission/web/ ` is what you want. The asked username and password are set by yourself. Type them in and begin downloading.
+`http://your.domain.name:9091/transmission/web/ ` is what you want. The asked username and password are set by yourself. Type them in and begin seeding.
